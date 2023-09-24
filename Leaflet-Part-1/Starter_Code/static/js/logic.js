@@ -38,10 +38,7 @@ d3.json(url).then(function(response) {
     
     // set location variable
     let location = features[i].geometry
-
-    // Check location property
-    if (location)
-
+    
     // Set colors
     if (location.coordinates[2] >=-10 && location.coordinates[2] < 10) {
         depth_color = "#7DFFA2"
