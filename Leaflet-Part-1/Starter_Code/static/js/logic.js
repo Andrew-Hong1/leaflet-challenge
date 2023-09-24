@@ -25,20 +25,16 @@ d3.json(url).then(function(response) {
     // Add properties to the features array called radius and color
     for (i = 0; i < features.length; i++) {
         features[i].radius = Math.log(features[i].properties.mag) * 10000;
-    }
 
-    // Loop through data
-    for (i = 0; i < features.length; i++) {
-    let depth_color; // declare depth color
+        // Get the radius value from the data source
+        let radius = features[i].radius;
 
-    // Get the radius value from the data source
-    let radius = features[i].radius;
-
-    // Check if the radius value is a valid number
-    if (isNaN(radius)) {
-    // Set the radius value to 0 if it is not a valid number
+        // Check if the radius value is a valid number
+        if (isNaN(radius)) {
+        // Set the radius value to 0 if it is not a valid number
         radius = 0;
     }
+
     
     // set location variable
     let location = features[i].geometry
@@ -81,7 +77,7 @@ d3.json(url).then(function(response) {
 
             // title
             div.innerHTML += '<h4>Earthquake Depth</h4>';
-            
+
             for (var i = 0; i < colors.length; i++) {
                 div.innerHTML +=
                 '<i style="background:' + colors[i] + '"></i> ' +
